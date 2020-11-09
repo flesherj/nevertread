@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-nevertread-dev-193844-authRole",
+      "UnauthRoleArn": "arn:aws:iam::844273463541:role/amplify-nevertread-dev-193844-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::844273463541:role/amplify-nevertread-dev-193844-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-nevertread-dev-193844-deployment",
+      "UnauthRoleName": "amplify-nevertread-dev-193844-unauthRole",
+      "StackName": "amplify-nevertread-dev-193844",
+      "StackId": "arn:aws:cloudformation:us-east-1:844273463541:stack/amplify-nevertread-dev-193844/ee9a2010-2223-11eb-a3c8-0e403b617781",
+      "AmplifyAppId": "d3la8phcolmtuq"
+    },
+    "categories": {
+      "auth": {
+        "nevertread82cee984": {}
+      }
+    }
+  }
+}
