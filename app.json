@@ -1,0 +1,12 @@
+{
+  "name": "nevertread",
+  "displayName": "nevertread",
+  "expo": {
+    "name": "nevertread",
+    "slug": "nevertread",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
