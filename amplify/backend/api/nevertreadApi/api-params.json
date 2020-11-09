@@ -1,0 +1,42 @@
+{
+    "paths": [
+        {
+            "name": "/items",
+            "lambdaFunction": "nevertreadSvc",
+            "privacy": {
+                "private": true,
+                "auth": [
+                    "/POST",
+                    "/GET",
+                    "/PUT",
+                    "/PATCH",
+                    "/DELETE"
+                ]
+            },
+            "policyResourceName": "/items"
+        }
+    ],
+    "resourceName": "nevertreadApi",
+    "apiName": "nevertreadApi",
+    "functionArns": [
+        {
+            "lambdaFunction": "nevertreadSvc"
+        }
+    ],
+    "privacy": {
+        "auth": 1,
+        "unauth": 0,
+        "authRoleName": "amplify-nevertread-dev-193844-authRole",
+        "unAuthRoleName": "amplify-nevertread-dev-193844-unauthRole"
+    },
+    "dependsOn": [
+        {
+            "category": "function",
+            "resourceName": "nevertreadSvc",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "auth": {
+      "nevertread82cee984": [
+        "create",
+        "read",
+        "update",
+        "delete"
+      ]
+    }
+  },
+  "lambdaLayers": []
+}
