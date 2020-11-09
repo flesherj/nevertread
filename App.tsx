@@ -4,10 +4,12 @@ import { StyleSheet, Text, View } from 'react-native';
 import Amplify from "aws-amplify";
 // @ts-ignore
 import config from "./aws-exports";
+// @ts-ignore
+import { withAuthenticator } from "aws-amplify-react-native";
 
 Amplify.configure(config);
 
-export default function App() {
+function App() {
   return (
     <View style={styles.container}>
       <Text>Open up App.tsx to start working on your app!</Text>
@@ -23,3 +25,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+export default withAuthenticator(App, true)
+
