@@ -9,3 +9,9 @@ https://www.jetbrains.com/help/idea/react-native.html#ws_react_native_debug_expo
 
 ### More To Read:
 https://www.robinwieruch.de/react-native-navigation
+
+
+### React Native Paper:
+https://callstack.github.io/react-native-paper/
+
+https://materialdesignicons.com/

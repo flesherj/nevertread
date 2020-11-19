@@ -1,34 +1,45 @@
 import React from 'react';
-import { Button, StyleSheet, Text, View } from 'react-native';
+import { StyleSheet } from 'react-native';
+import { Provider } from 'react-redux';
+import { Provider as PaperProvider, Surface } from 'react-native-paper';
 
 import Amplify from 'aws-amplify';
 // @ts-ignore
 import config from './aws-exports';
 // @ts-ignore
 import { withAuthenticator } from 'aws-amplify-react-native';
-import { ItemsRepository } from './client/ItemsRepository';
 
 Amplify.configure(config);
 import { API } from 'aws-amplify';
 
+
+import theme from './Theme';
+import store from './redux/NeverTreadStore';
+import { Feed } from './features/feed/Feed';
+import { ItemsRepository } from './client/ItemsRepository';
+
+// JDF: Fix me
 // @ts-ignore
 const itemRepo: ItemsRepository = new ItemsRepository(API);
 
-function App() {
-    return (
-        <View style={styles.container}>
-            <Text>Open up App.tsx to start working on your app!</Text>
-            <Button title={'Test'} onPress={itemRepo.getItems} />
-        </View>
-    );
+class App extends React.Component {
+    render() {
+        return (
+            <Provider store={store}>
+                <PaperProvider theme={theme}>
+                    <Surface style={styles.container}>
+                        <Feed />
+                    </Surface>
+                </PaperProvider>
+            </Provider>
+        );
+    }
 }
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center',
+        alignItems: 'stretch',
     },
 });
 
