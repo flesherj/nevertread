@@ -76,7 +76,7 @@
         "Timeout": "25",
         "Code": {
           "S3Bucket": "amplify-nevertread-dev-193844-deployment",
-          "S3Key": "amplify-builds/nevertreadSvc-383565697237626d4c69-build.zip"
+          "S3Key": "amplify-builds/nevertreadSvc-4d4f396e522f2f67556e-build.zip"
         }
       }
     },

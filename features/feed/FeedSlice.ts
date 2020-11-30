@@ -1,46 +1,28 @@
-import { createSlice, Slice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction, Slice } from '@reduxjs/toolkit';
 import { PostData } from '../post/Post';
-import { v4 as uuid } from 'uuid';
+
+export interface FeedState {
+    posts: Array<PostData>
+}
 
 const feedSlice: Slice = createSlice({
     name: 'feed',
     initialState: {
-        posts: [
-            {
-                id: uuid(),
-                timestamp: new Date(),
-                content: 'post1',
-                commentCount: 1,
-                image: 'https://assets-global.website-files.com/5ebb0930dd82631397ddca92/5f0ce06d83f430659aef8bd6_element-formstack-dark-logo.svg'
-            } as PostData,
-            {
-                id: uuid(),
-                timestamp: new Date(),
-                content: 'post2',
-                commentCount: 0,
-            } as PostData,
-            {
-                id: uuid(),
-                timestamp: new Date(),
-                content: 'post3',
-                commentCount: 10,
-            } as PostData,
-            {
-                id: uuid(),
-                timestamp: new Date(),
-                content: 'post4',
-                commentCount: 100,
-            } as PostData,
-            {
-                id: uuid(),
-                timestamp: new Date(),
-                content: 'post5',
-                commentCount: 1000,
-            } as PostData,
-        ] as Array<PostData>,
+        posts: new Array<PostData>(),
     },
-    reducers: {},
+    reducers: {
+        addPostsFromFeed(state: FeedState, action: PayloadAction<Array<PostData>> ) {
+            state.posts = state.posts.concat(action.payload);
+        },
+
+        incrementReactionCount(state: FeedState, action: PayloadAction<string>) {
+            const selectedPost: PostData | undefined = state.posts.find(post => post.id === action.payload);
+            if(selectedPost) {
+                selectedPost.reactionCount += 1;
+            }
+        }
+    },
 });
 
-export const {} = feedSlice.actions;
+export const { addPostsFromFeed, incrementReactionCount } = feedSlice.actions;
 export default feedSlice.reducer;

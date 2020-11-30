@@ -15,3 +15,6 @@ https://www.robinwieruch.de/react-native-navigation
 https://callstack.github.io/react-native-paper/
 
 https://materialdesignicons.com/
+
+https://github.com/typescript-cheatsheets/react
+https://github.com/piotrwitek/react-redux-typescript-guide

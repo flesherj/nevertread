@@ -12,6 +12,8 @@ See the License for the specific language governing permissions and limitations 
 	REGION
 Amplify Params - DO NOT EDIT */
 
+const uuid = require('uuid').v4;
+
 var express = require('express');
 var bodyParser = require('body-parser');
 var awsServerlessExpressMiddleware = require('aws-serverless-express/middleware');
@@ -32,10 +34,80 @@ app.use(function (req, res, next) {
  * Example get method *
  **********************/
 
+app.get('/feed', (req, res) => {
+    res.json([uuid(), uuid(), uuid(), uuid(), uuid()]);
+});
+
+app.post('/post', (req, res) => {
+
+});
+
+app.get('/post/:postId', (req, res) => {
+    const postId = req.params.postId;
+
+    res.json({
+        id: req.params.postId,
+        postedBy: 'James Flesher',
+        timestamp: new Date(),
+        content: `post - ${postId}`,
+        commentCount: randomInt(),
+        reactionCount: randomInt(),
+        shareCount: randomInt(),
+    });
+});
+
+function randomInt(max = 1000000) {
+    return Math.floor(Math.random() * Math.floor(max));
+}
+
 app.get('/items', function (req, res) {
     // Add your code here
     console.log('i am here');
-    res.json({ success: 'get call succeed!', url: req.url, data: [{ id: 1 }] });
+    res.json([
+        {
+            id: uuid(),
+            postedBy: 'James Flesher',
+            timestamp: new Date(),
+            content: 'post1',
+            commentCount: 1,
+            reactionCount: 1,
+            shareCount: 1,
+            image:
+                'https://assets-global.website-files.com/5ebb0930dd82631397ddca92/5f0ce06d83f430659aef8bd6_element-formstack-dark-logo.svg',
+        },
+        {
+            id: uuid(),
+            timestamp: new Date(),
+            content: 'post2',
+            commentCount: 0,
+            reactionCount: 0,
+            shareCount: 0,
+        },
+        {
+            id: uuid(),
+            timestamp: new Date(),
+            content: 'post3',
+            commentCount: 10,
+            reactionCount: 10,
+            shareCount: 10,
+        },
+        {
+            id: uuid(),
+            timestamp: new Date(),
+            content: 'post4',
+            commentCount: 100,
+            reactionCount: 100,
+            shareCount: 100,
+        },
+        {
+            id: uuid(),
+            timestamp: new Date(),
+            content: 'post5',
+            commentCount: 1000,
+            reactionCount: 1000,
+            shareCount: 1000,
+        },
+    ]);
 });
 
 app.get('/items/*', function (req, res) {

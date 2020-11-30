@@ -1,4 +1,4 @@
-import { createSlice, Slice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction, Slice } from '@reduxjs/toolkit';
 
 const postSlice: Slice = createSlice({
     name: 'post',
@@ -7,7 +7,9 @@ const postSlice: Slice = createSlice({
         content: null,
     },
     reducers: {
-
+        addReaction(state, action: PayloadAction) {
+            // state.
+        }
     },
 });
 
